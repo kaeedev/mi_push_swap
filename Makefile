@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+         #
+#    By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/27 11:30:00 by luviso-p          #+#    #+#              #
-#    Updated: 2025/06/27 11:34:01 by luviso-p         ###   ########.fr        #
+#    Updated: 2025/06/29 14:07:35 by lalbe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,11 @@ CFLAGS = -Wall -Wextra -Werror -g
 SRCDIR = .
 OBJDIR = obj
 
-SOURCES = 
+SOURCES = ft_push.c ft_rotate_up.c ft_rotate_down.c ft_swap.c ft_index.c ft_free.c \
+          ft_printf/ft_printf.c ft_printf/utils/ft_nbr_hex.c ft_printf/utils/ft_nbr_pointer.c \
+          ft_printf/utils/ft_putchar.c ft_printf/utils/ft_putnbr.c ft_printf/utils/ft_putnbru.c \
+          ft_printf/utils/ft_putstr.c ft_printf/utils/ft_strlen.c ft_find_index.c ft_sort.c \
+		  ft_tools.c test.c ft_find.c
 
 OBJECTS = $(SOURCES:%.c=$(OBJDIR)/%.o)
 
@@ -58,4 +62,37 @@ test: $(NAME)
 	@echo ""
 	@./$(NAME) 1 5 2 4 3
 
-.PHONY: all clean fclean re test
+test_functions:
+	@echo "$(BLUE)Compiling ft_printf...$(NC)"
+	@make -C ft_printf
+	@echo "$(BLUE)Compiling and running function tests...$(NC)"
+	@$(CC) $(CFLAGS) ft_index.c ft_push.c ft_rotate_down.c ft_rotate_up.c ft_swap.c ft_free.c ft_find_index.c ft_sort.c ft_tools.c test.c ft_printf/libftprintf.a -o test_program
+	@./test_program
+	@rm -f test_program
+
+debug: $(SOURCES)
+	@echo "$(BLUE)Compiling with debug info...$(NC)"
+	@$(CC) $(CFLAGS) -g3 -fsanitize=address $(SOURCES) -o $(NAME)_debug
+
+valgrind: $(NAME)
+	@echo "$(BLUE)Running valgrind tests...$(NC)"
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) 4 67 3 87 23
+
+norm:
+	@echo "$(BLUE)Checking norminette...$(NC)"
+	@norminette $(SOURCES) *.h
+
+help:
+	@echo "$(GREEN)Available targets:$(NC)"
+	@echo "  $(BLUE)all$(NC)           - Build the push_swap program"
+	@echo "  $(BLUE)clean$(NC)         - Remove object files"
+	@echo "  $(BLUE)fclean$(NC)        - Remove object files and executable"
+	@echo "  $(BLUE)re$(NC)            - Rebuild everything"
+	@echo "  $(BLUE)test$(NC)          - Run basic functionality tests"
+	@echo "  $(BLUE)test_functions$(NC) - Test individual functions"
+	@echo "  $(BLUE)debug$(NC)         - Compile with debug and sanitizer"
+	@echo "  $(BLUE)valgrind$(NC)      - Run with valgrind memory check"
+	@echo "  $(BLUE)norm$(NC)          - Check code with norminette"
+	@echo "  $(BLUE)help$(NC)          - Show this help"
+
+.PHONY: all clean fclean re test test_functions debug valgrind norm help
