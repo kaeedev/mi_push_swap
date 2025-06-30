@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:19:04 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/29 14:08:26 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/06/30 11:04:24 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -43,28 +44,28 @@ void	rrb(t_stack **b, int print);
 void	rrr(t_stack **a, t_stack **b, int print);
 void	rrr_rot(t_stack **a, t_stack **b, int *a_cost, int *b_cost);
 void	b_rot(t_stack **b, int *cost);
-void    ra(t_stack **a, int print);
-void    rb(t_stack **b, int print);
-void    rr(t_stack **a, t_stack **b, int print);
-void    rr_rot(t_stack **a, t_stack **b, int *a_cost, int *b_cost);
-void    a_rot(t_stack **a, int *cost);
-void    sa(t_stack **a, int print);
-void    sb(t_stack **b, int print);
-void    ss(t_stack **a, t_stack **b, int print);
-t_stack *ft_copy_stack(t_stack *src);
+void	ra(t_stack **a, int print);
+void	rb(t_stack **b, int print);
+void	rr(t_stack **a, t_stack **b, int print);
+void	rr_rot(t_stack **a, t_stack **b, int *a_cost, int *b_cost);
+void	a_rot(t_stack **a, int *cost);
+void	sa(t_stack **a, int print);
+void	sb(t_stack **b, int print);
+void	ss(t_stack **a, t_stack **b, int print);
+t_stack	*ft_copy_stack(t_stack *src);
 void	ft_sort_list(t_stack **list);
-int 	ft_find_index(t_stack *sorted_list, int value);
-void    ft_get_index(t_stack **a);
-void    ft_free_stack(t_stack *stack);
-int 	ft_find_index_up(t_stack **a, int min, int max);
-int 	ft_find_index_down(t_stack **a, int min, int max);
-void    ft_cheap_sort(t_stack **a, t_stack **b);
-void    ft_get_cost(t_stack **a, t_stack **b);
-int     ft_stack_len(t_stack *stack);
-void    ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost);
+int		ft_find_index(t_stack *sorted_list, int value);
+void	ft_get_index(t_stack **a);
+void	ft_free_stack(t_stack *stack);
+int		ft_find_index_up(t_stack **a, int min, int max);
+int		ft_find_index_down(t_stack **a, int min, int max);
+void	ft_cheap_sort(t_stack **a, t_stack **b);
+void	ft_get_cost(t_stack **a, t_stack **b);
+int		ft_stack_len(t_stack *stack);
+void	ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost);
 int		ft_abs(int a);
-int 	ft_find_min(t_stack **stack);
+int		ft_find_min(t_stack **stack);
 
-void    ft_print_stack(t_stack *stack, char *name);
-t_stack *ft_create_test_stack(int values[], int size);
+void	ft_print_stack(t_stack *stack, char *name);
+t_stack	*ft_create_test_stack(int values[], int size);
 #endif

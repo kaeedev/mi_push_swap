@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate_down.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 13:03:57 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/28 13:19:17 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/06/30 11:07:19 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//rra rota el ultimo elemento del stack a y lo pone el primero. 
-//[20, 30, 10]->[10,20,30]
+/* rra rota el ultimo elemento del stack a y lo pone el primero. 
+ * [20, 30, 10]->[10,20,30] */
 void	rra(t_stack **a, int print)
 {
 	t_stack	*last;
@@ -34,7 +34,7 @@ void	rra(t_stack **a, int print)
 		ft_printf("rra\n");
 }
 
-//rrb rota el ultimo elemento del stack b y lo pone el primero.
+/* rrb rota el ultimo elemento del stack b y lo pone el primero. */
 void	rrb(t_stack **b, int print)
 {
 	t_stack	*last;
@@ -55,8 +55,8 @@ void	rrb(t_stack **b, int print)
 		ft_printf("rrb\n");
 }
 
-//rrr ejecuta simultaneamente rra y rrb. rota las ultimas posiciones de a y b 
-//a las primeras
+/* rrr ejecuta simultaneamente rra y rrb. rota las ultimas posiciones de a y b 
+ * a las primeras */
 void	rrr(t_stack **a, t_stack **b, int print)
 {
 	rra(a, 0);
@@ -65,12 +65,12 @@ void	rrr(t_stack **a, t_stack **b, int print)
 		ft_printf("rrr\n");
 }
 
-// ahorra movimientos cuando necesitamos rotar ambos elementos hacia abajo 
-//(ultimo elemento va al principio).
-// En lugar de hacer las rotaciones por separado, las hace juntas 
-//para ahorrar movimientos
-// Rota el ultimo elemento a la primera posicion de ambas pilas hasta 
-//que el coste sea 0
+/* ahorra movimientos cuando necesitamos rotar ambos elementos hacia abajo 
+ * (ultimo elemento va al principio).
+ * En lugar de hacer las rotaciones por separado, las hace juntas 
+ * para ahorrar movimientos
+ * Rota el ultimo elemento a la primera posicion de ambas pilas hasta 
+ * que el coste sea 0 */
 void	rrr_rot(t_stack **a, t_stack **b, int *a_cost, int *b_cost)
 {
 	while (*a_cost < 0 && *b_cost < 0)
@@ -81,9 +81,9 @@ void	rrr_rot(t_stack **a, t_stack **b, int *a_cost, int *b_cost)
 	}
 }
 
-//Ejecuta todas las rotaciones necesarias en el stack b hasta q el coste sea 0
-//si es de coste positivo hará rb (rota el primer elemento al ultimo)
-//Si es de coste negativo hará rrb (rota el ultimo elemento al primero)
+/* Ejecuta todas las rotaciones necesarias en el stack b hasta q el coste sea 0
+ * si es de coste positivo hará rb (rota el primer elemento al ultimo)
+ * Si es de coste negativo hará rrb (rota el ultimo elemento al primero) */
 void	b_rot(t_stack **b, int *cost)
 {
 	while (*cost != 0)

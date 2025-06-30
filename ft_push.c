@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:34:42 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/28 12:46:55 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/06/30 11:05:32 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//pa toma el primer elemento del stack b y lo mueve al primero del stack a
+/* pa toma el primer elemento del stack b y lo mueve al primero del stack a */
 void	pa(t_stack **a, t_stack **b, int print)
 {
 	t_stack	*temp;
@@ -29,10 +29,10 @@ void	pa(t_stack **a, t_stack **b, int print)
 		(*a)->prev = temp;
 	*a = temp;
 	if (print == 1)
-		ft_printf("pa\n");		
+		ft_printf("pa\n");
 }
 
-//pb toma el primer elemento del stack a y lo mueve al primero del stack b
+/* pb toma el primer elemento del stack a y lo mueve al primero del stack b */
 void	pb(t_stack **a, t_stack **b, int print)
 {
 	t_stack	*temp;
