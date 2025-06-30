@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 11:16:24 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 12:37:12 by luviso-p         ###   ########.fr       */
+/*   Created: 2025/06/30 14:41:01 by luviso-p          #+#    #+#             */
+/*   Updated: 2025/06/30 14:51:30 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* Recorre todos los nodos de un stack y libera la memoria de cada nodo */
-void	ft_free(t_stack **stack)
+//Esta funcion verifica si el stack A esta ya ordenada en orden
+//ascendente
+int	be_sorted(t_stack **a)
 {
 	t_stack	*temp;
 
-	if (*stack == NULL)
-		return ;
-	while (*stack)
+	if (a == NULL)
+		return (1);
+	temp = *a;
+	while (temp-> != NULL)
 	{
-		temp = (*stack)->next;
-		free(*stack);
-		*stack = temp;
+		if (temp->value < temp->next->value)
+			temp = temp->next;
+		else 
+			return (0);
 	}
-	*stack = NULL;
-	free(temp);
-}
-
-//Libera la memoria de ambos stacks a la vez
-void	ft_free_all(t_stack **a, t_stack **b)
-{
-	ft_free(a);
-	ft_free(b);
+	return (1);
 }

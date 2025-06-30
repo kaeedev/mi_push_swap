@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:19:04 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 11:04:24 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/06/30 14:52:03 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ t_stack	*ft_copy_stack(t_stack *src);
 void	ft_sort_list(t_stack **list);
 int		ft_find_index(t_stack *sorted_list, int value);
 void	ft_get_index(t_stack **a);
-void	ft_free_stack(t_stack *stack);
+void	ft_free(t_stack **stack);
+void	ft_free_all(t_stack **a, t_stack **b);
 int		ft_find_index_up(t_stack **a, int min, int max);
 int		ft_find_index_down(t_stack **a, int min, int max);
 void	ft_cheap_sort(t_stack **a, t_stack **b);
@@ -65,6 +66,14 @@ int		ft_stack_len(t_stack *stack);
 void	ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost);
 int		ft_abs(int a);
 int		ft_find_min(t_stack **stack);
+int		ft_find_max(t_stack **stack);
+int		ft_find_pos_min(t_stack **stack, int min);
+int		ft_find_pos_max(t_stack **stack, int max);
+int		ft_find_last(t_stack **stack);
+void	ft_sort_three(t_stack **stack);
+void	ft_sort_four(t_stack **a, t_stack **b);
+void	ft_sort(t_stack **a, t_stack **b);
+int		be_sorted(t_stack **a);
 
 void	ft_print_stack(t_stack *stack, char *name);
 t_stack	*ft_create_test_stack(int values[], int size);

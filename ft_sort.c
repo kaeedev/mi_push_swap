@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 12:32:48 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 11:08:51 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/06/30 14:53:23 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,90 @@ void	ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost)
 	a_rot(a, &a_cost);
 	b_rot(b, &b_cost);
 	pa(a, b, 1);
+}
+
+//Esta funcion se encarga de ordenar una pila de 3 elementos
+//utilizando operaciones de rotacion y swap
+void	ft_sort_three(t_stack **stack)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*stack)->index;
+	second = (*stack)->next->index;
+	third = (*stack)->next->next->index;
+	if ((first > second) && (first < third))
+		sa(stack, 1);
+	else if ((first > second) && (first > third) && (second > third))
+	{
+		sa(stack, 1);
+		rra(stack, 1);
+	}
+	else if ((first > second) && (first > third) && (second < third))
+		ra(stack, 1);
+	else if ((first < second) && (first < third))
+	{
+		sa(stack, 1);
+		ra(stack, 1);
+	}
+	else if ((first < second) && (first > third))
+		rra(stack, 1);
+}
+
+//Esta funcion se encarga de ordenar una pila de 4 elementos
+//Necesitaremos un stack B para poder ordenar eficientemente
+//Mandamos el primer elemento al stack B y luego ordenamos el stack A
+//con el algoritmo de 3 elementos. Luego pusheamos de B a A el elemento
+//que falta
+void	ft_sort_four(t_stack **a, t_stack **b)
+{
+	int	min;
+
+	min = ft_find_pos_min(a, ft_find_min(a));
+	if (min < 2)
+	{
+		while (ft_find_min(a) != (*a)->index)
+			ra(a, 1);
+	}
+	else
+	{
+		while (ft_find_min(a) != (*a)->index)
+			rra(a, 1);
+	}
+	pb(a, b, 1);
+	if (be_sorted(a) == 1)
+		pa(a, b, 1);
+	else
+	{
+		ft_sort_three(a);
+		pa(a, b, 1);
+	}
+}
+
+//Se encarga de ordenar el stack A utilizando diferentes
+//algoritmos de ordenamiento dependiendo de la longitud
+//de la pila
+void	ft_sort(t_stack **a, t_stack **b)
+{
+	int	stack_len;
+
+	if (!(*a))
+		return ;
+	stack_len = ft_stack_len(a);
+	ft_get_index(a);
+	ft_add_pos(a); //por hacer
+	ft_find_pos_target(a); //por hacer
+	if (stack_len < 2)
+		ft_error(0);
+	else if (stack_len == 2)
+		sa(a, 1);
+	else if (stack_len == 3)
+		ft_sort_three(a);
+	else if (stack_len == 4)
+		ft_sort_four(a, b);
+	else if (stack_len == 5)
+		ft_sort_five(); //por hacer
+	else if (stack_len > 5)
+		ft_sort_max(); //por hacer
 }
