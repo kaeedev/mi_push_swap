@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 15:25:13 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 11:07:56 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:49:26 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,15 @@ int	ft_find_index(t_stack *sorted_list, int value)
 	return (-1);
 }
 
+//Convierte los valores de los elementos en indices relativos que representan
+//su posicion en el orden ascendente
+//Stack original: [42, 7, 100, 3, 15]
+//42 → index = 2 (es el 3° más pequeño)
+//7 → index = 1 (es el 2° más pequeño)
+//100 → index = 4 (es el más grande)
+//3 → index = 0 (es el más pequeño)
+//15 → index = 3 (es el 4° más pequeño)
+//Resultado: [42(2), 7(1), 100(4), 3(0), 15(3)]
 void	ft_get_index(t_stack **a)
 {
 	t_stack	*sorted_copy;

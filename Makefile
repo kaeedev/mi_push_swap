@@ -6,7 +6,7 @@
 #    By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/27 11:30:00 by luviso-p          #+#    #+#              #
-#    Updated: 2025/06/30 14:53:44 by luviso-p         ###   ########.fr        #
+#    Updated: 2025/07/02 13:03:46 by luviso-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SOURCES = ft_push.c ft_rotate_up.c ft_rotate_down.c ft_swap.c ft_index.c ft_free
           ft_printf/ft_printf.c ft_printf/utils/ft_nbr_hex.c ft_printf/utils/ft_nbr_pointer.c \
           ft_printf/utils/ft_putchar.c ft_printf/utils/ft_putnbr.c ft_printf/utils/ft_putnbru.c \
           ft_printf/utils/ft_putstr.c ft_printf/utils/ft_strlen.c ft_find_index.c ft_sort.c \
-		  ft_tools.c test.c ft_find.c, ft_push_swap.c
+		  ft_tools.c test.c ft_find.c, ft_push_swap.c ft_sort_big.c ft_pos.c
 
 OBJECTS = $(SOURCES:%.c=$(OBJDIR)/%.o)
 

@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:19:04 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 14:52:03 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/02 14:44:03 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,12 @@ int		ft_find_pos_max(t_stack **stack, int max);
 int		ft_find_last(t_stack **stack);
 void	ft_sort_three(t_stack **stack);
 void	ft_sort_four(t_stack **a, t_stack **b);
+void	ft_sort_five(t_stack **a, t_stack **b);
 void	ft_sort(t_stack **a, t_stack **b);
 int		be_sorted(t_stack **a);
+void	ft_add_pos(t_stack **a, t_stack **b);
+int		ft_target(t_stack **a, int index, int target, int pos);
+void	ft_find_pos_target(t_stack **a, t_stack **b);
 
 void	ft_print_stack(t_stack *stack, char *name);
 t_stack	*ft_create_test_stack(int values[], int size);

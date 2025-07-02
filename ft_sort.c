@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 12:32:48 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 14:53:23 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:47:10 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@ int	ft_stack_len(t_stack *stack)
 		stack = stack->next;
 	}
 	return (len);
-}
-
-/* Mueve un elemento específico del stack B al stack A de la manera más 
- * eficiente posible, minimizando el número total de operaciones. */
-void	ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost)
-{
-	if (a_cost < 0 && b_cost < 0)
-		rrr_rot(a, b, &a_cost, &b_cost);
-	else if (a_cost > 0 && b_cost > 0)
-		rr_rot(a, b, &a_cost, &b_cost);
-	a_rot(a, &a_cost);
-	b_rot(b, &b_cost);
-	pa(a, b, 1);
 }
 
 //Esta funcion se encarga de ordenar una pila de 3 elementos
@@ -98,6 +85,34 @@ void	ft_sort_four(t_stack **a, t_stack **b)
 	}
 }
 
+//Esta funcion se encarga de ordenar una pila de 5 elementos
+//Necesitaremos un stack B para poder ordenar eficientemente
+//Mandamos los dos primeros elemento al stack B y luego ordenamos el stack A
+//con el algoritmo de 3 elementos. Luego pusheamos de B a A los elementos
+//que faltan
+void	ft_sort_five(t_stack **a, t_stack **b)
+{
+	while (ft_stack_len(*a) > 3)
+	{
+		if (ft_find_pos_min(a, ft_find_min(a)) < 3)
+			ra(a, 1);
+		else
+			rra(a, 1);
+		pb(a, b, 1);
+	}
+	if (be_sorted(a) == 1)
+	{
+		pa(a, b, 1);
+		pa(a, b, 1);
+	}
+	else
+	{
+		ft_sort_three(a);
+		pa(a, b, 1);
+		pa(a, b, 1);
+	}
+}
+
 //Se encarga de ordenar el stack A utilizando diferentes
 //algoritmos de ordenamiento dependiendo de la longitud
 //de la pila
@@ -107,9 +122,9 @@ void	ft_sort(t_stack **a, t_stack **b)
 
 	if (!(*a))
 		return ;
-	stack_len = ft_stack_len(a);
+	stack_len = ft_stack_len(*a);
 	ft_get_index(a);
-	ft_add_pos(a); //por hacer
+	ft_add_pos(a, b);
 	ft_find_pos_target(a); //por hacer
 	if (stack_len < 2)
 		ft_error(0);
@@ -120,7 +135,7 @@ void	ft_sort(t_stack **a, t_stack **b)
 	else if (stack_len == 4)
 		ft_sort_four(a, b);
 	else if (stack_len == 5)
-		ft_sort_five(); //por hacer
+		ft_sort_five(a, b);
 	else if (stack_len > 5)
 		ft_sort_max(); //por hacer
 }

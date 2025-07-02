@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   ft_sort_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 14:41:01 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/02 12:47:09 by luviso-p         ###   ########.fr       */
+/*   Created: 2025/07/02 12:41:24 by luviso-p          #+#    #+#             */
+/*   Updated: 2025/07/02 12:46:18 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//Esta funcion verifica si el stack A esta ya ordenada en orden
-//ascendente
-int	be_sorted(t_stack **a)
-{
-	t_stack	*temp;
 
-	if (a == NULL)
-		return (1);
-	temp = *a;
-	while (temp->next != NULL)
-	{
-		if (temp->value < temp->next->value)
-			temp = temp->next;
-		else
-			return (0);
-	}
-	return (1);
+/* Mueve un elemento específico del stack B al stack A de la manera más 
+ * eficiente posible, minimizando el número total de operaciones. */
+void	ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost)
+{
+	if (a_cost < 0 && b_cost < 0)
+		rrr_rot(a, b, &a_cost, &b_cost);
+	else if (a_cost > 0 && b_cost > 0)
+		rr_rot(a, b, &a_cost, &b_cost);
+	a_rot(a, &a_cost);
+	b_rot(b, &b_cost);
+	pa(a, b, 1);
 }
