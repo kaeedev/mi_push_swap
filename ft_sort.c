@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 12:32:48 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/02 13:47:10 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:09:10 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	ft_sort(t_stack **a, t_stack **b)
 	stack_len = ft_stack_len(*a);
 	ft_get_index(a);
 	ft_add_pos(a, b);
-	ft_find_pos_target(a); //por hacer
+	ft_find_pos_target(a, b);
 	if (stack_len < 2)
 		ft_error(0);
 	else if (stack_len == 2)

@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 11:16:24 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/03 10:29:38 by lalbe            ###   ########.fr       */
+/*   Created: 2025/07/03 17:22:58 by lalbe             #+#    #+#             */
+/*   Updated: 2025/07/03 17:25:16 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Recorre todos los nodos de un stack y libera la memoria de cada nodo */
-void	ft_free(t_stack **stack)
+int	ft_atoi(const char *str)
 {
-	t_stack	*temp;
+	int	result;
+	int	sign;
 
-	if (*stack == NULL)
-		return ;
-	while (*stack)
+	result = 0;
+	sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str ++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str ++;
+	while (*str >= '0' && *str <= '9')
 	{
-		temp = (*stack)->next;
-		free(*stack);
-		*stack = temp;
+		result = result * 10 + *str - '0';
+		str ++;
 	}
-	*stack = NULL;
-	free(temp);
-}
-
-//Libera la memoria de ambos stacks a la vez
-void	ft_free_all(t_stack **a, t_stack **b)
-{
-	ft_free(a);
-	ft_free(b);
+	return (sign * result);
 }

@@ -101,5 +101,5 @@ void	ft_get_index(t_stack **a)
 		original->index = ft_find_index(sorted_copy, original->value);
 		original = original->next;
 	}
-	ft_free_stack(sorted_copy);
+	ft_free(sorted_copy);
 }
