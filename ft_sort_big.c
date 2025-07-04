@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:41:24 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:20:25 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:48:58 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost)
 }
 
 //Devuelve la posicion del elemento minimo en el stack A
-int	ft_pos_min(t_stack **a, int start_pos)
+/*int	ft_pos_min(t_stack **a, int start_pos)
 {
 	int		min_pos;
 	int		current_pos;
@@ -50,11 +50,11 @@ int	ft_pos_min(t_stack **a, int start_pos)
 		current_pos++;
 	}
 	return (min_pos);
-}
+}*/
 
 //Se encarga de ordenar el stack A y B utilizando diferentes algoritmos de
 //orenamiento dependiendo de la posicion de los elementos en el stack A
-void	ft_sort_end(t_stack **a, t_stack **b)
+/*void	ft_sort_end(t_stack **a, t_stack **b)
 {
 	ft_sort_min(a);
 	while (*b)
@@ -65,14 +65,14 @@ void	ft_sort_end(t_stack **a, t_stack **b)
 		if (!be_sorted(a))
 			shifte_change(a);
 	}
-}
+}*/
 
 /* Procesa un elemento del chunk */
-void	ft_process_element(t_stack **a, t_stack **b, int *pushed_total)
+/*void	ft_process_element(t_stack **a, t_stack **b, int *pushed_total)
 {
     pb(a, b, 1);
     (*pushed_total)++;
-}
+}*/
 
 /* Función principal optimizada */
 void	ft_sort_max(t_stack **a, t_stack **b)

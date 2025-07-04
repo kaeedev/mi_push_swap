@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 11:55:38 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 11:08:37 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:44:23 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //Devuelve el indice mas cercano al rango minimo q le pongamos. 
 //Si ponemos de rango
 //2 y 4, nos devuelve el indice 2, q es el indice del elemento 2 en el stack
-int	ft_find_index_up(t_stack **a, int min, int max)
+/*int	ft_find_index_up(t_stack **a, int min, int max)
 {
 	t_stack	*temp;
 	int		index;
@@ -33,12 +33,12 @@ int	ft_find_index_up(t_stack **a, int min, int max)
 		temp = temp->next;
 	}
 	return (-1);
-}
+}*/
 
 /* Devuelve el indice mas cercado al rango maximo q le pongamos. Si ponemos de 
  * rango 2 y 4, nos devuelve el indice 4, q es el indice del elemento 4 en 
  * el stack */
-int	ft_find_index_down(t_stack **a, int min, int max)
+/*int	ft_find_index_down(t_stack **a, int min, int max)
 {
 	t_stack	*temp;
 	int		index;
@@ -55,7 +55,7 @@ int	ft_find_index_down(t_stack **a, int min, int max)
 		temp = temp->next;
 	}
 	return (found_index);
-}
+}*/
 
 /* Encuentra el elemento del stack B que es mas barato de mover al stack A
  * y ejecuta ese movimiento. Se llama repetidamente hasta vaciar B */

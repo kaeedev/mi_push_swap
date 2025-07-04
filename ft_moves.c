@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:38:50 by lalbe             #+#    #+#             */
-/*   Updated: 2025/07/03 16:22:46 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 14:32:24 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //La funcion se encarga de mover el elemento en la posicion pos en el stack A
 //hacia arriba o hacia abajo dependiendo del valor de i
-void	ft_move_a(t_stack **a, t_stack **b, int pos, int i)
+/*void	ft_move_a(t_stack **a, t_stack **b, int pos, int i)
 {
 	if (i == 1)
 	{
@@ -50,4 +50,4 @@ void    ft_select_a(t_stack **a, t_stack **b)
         ft_move_a(a, b, center_pos, 0);
     else
         ft_move_a(a, b, center_pos, 1);
-}
+}*/

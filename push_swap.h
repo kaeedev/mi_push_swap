@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:19:04 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:19:01 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:43:42 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void    ft_get_index(t_stack **a);
 void    ft_free(t_stack **stack);
 void	ft_free_all(t_stack **a, t_stack **b);
 void	ft_error(int i);
-int 	ft_find_index_up(t_stack **a, int min, int max);
-int 	ft_find_index_down(t_stack **a, int min, int max);
+//int 	ft_find_index_up(t_stack **a, int min, int max);
+//int 	ft_find_index_down(t_stack **a, int min, int max);
 void    ft_cheap_sort(t_stack **a, t_stack **b);
 void    ft_get_cost(t_stack **a, t_stack **b);
 int     ft_stack_len(t_stack *stack);
@@ -79,28 +79,28 @@ int		ft_find_last(t_stack **stack);
 int		ft_target(t_stack **a, int index, int target, int pos);
 void	ft_add_pos(t_stack **a, t_stack **b);
 int		be_sorted(t_stack **a);
-void    ft_sort_min(t_stack **stack);
-int    	ft_high_index(t_stack *stack);
-int 	ft_low_index(t_stack **stack);
-void    shifte_change(t_stack **a);
+//void    ft_sort_min(t_stack **stack);
+//int    	ft_high_index(t_stack *stack);
+//int 	ft_low_index(t_stack **stack);
+//void    shifte_change(t_stack **a);
 void	ft_sort_max(t_stack **a, t_stack **b);
-void	ft_move_a(t_stack **a, t_stack **b, int pos, int i);
-void    ft_select_a(t_stack **a, t_stack **b);
+//void	ft_move_a(t_stack **a, t_stack **b, int pos, int i);
+//void    ft_select_a(t_stack **a, t_stack **b);
 t_stack *ft_new_stack(int value);
-void	ft_b_to_a(t_stack **a, t_stack **b);
+//void	ft_b_to_a(t_stack **a, t_stack **b);
 int		ft_count_neg(t_stack **stack);
 int		be_nbr(char *str);
 void	ft_be_duplicated(t_stack *a);
 int		ft_atoi(const char *str);
-int		ft_pos_min(t_stack **a, int start_pos);
-void	ft_sort_end(t_stack **a, t_stack **b);
+//int		ft_pos_min(t_stack **a, int start_pos);
+//void	ft_sort_end(t_stack **a, t_stack **b);
 void	ft_sort_three(t_stack **stack);
 void	ft_sort_four(t_stack **a, t_stack **b);
 void	ft_sort_five(t_stack **a, t_stack **b);
 void	ft_sort(t_stack **a, t_stack **b);
-int		ft_find_max(t_stack **stack);
-int		ft_find_pos_max(t_stack **stack, int max);
-void	ft_process_chunk(t_stack **a, t_stack **b, int *i, int chunk);
+//int		ft_find_max(t_stack **stack);
+//int		ft_find_pos_max(t_stack **stack, int max);
+//void	ft_process_chunk(t_stack **a, t_stack **b, int *i, int chunk);
 void	ft_return_from_b(t_stack **a, t_stack **b);
 void	ft_init_chunk_data(t_chunk_data *data, int len);
 void	ft_process_chunk_element(t_stack **a, t_stack **b, t_chunk_data *data);

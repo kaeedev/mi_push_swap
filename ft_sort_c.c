@@ -6,14 +6,14 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:39:03 by lalbe             #+#    #+#             */
-/*   Updated: 2025/07/04 11:44:06 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:45:02 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //Se encarga de encontrar el indice mas alto en la pila
-int    ft_high_index(t_stack *stack)
+/*int    ft_high_index(t_stack *stack)
 {
     int index;
 
@@ -25,10 +25,10 @@ int    ft_high_index(t_stack *stack)
         stack = stack->next;
     }
     return (index);
-}
+}*/
 
 //Se encarga de encontrar la posicion del elemento con el indice mas bajo del stack
-int ft_low_index(t_stack **stack)
+/*int ft_low_index(t_stack **stack)
 {
     t_stack *temp;
     int     low_index;
@@ -50,11 +50,11 @@ int ft_low_index(t_stack **stack)
         current_pos ++;
     }
     return (low_pos);
-}
+}*/
 
 //Se encarga de ordenar la pila de manera que el elemento con el indice mas bajo
 //este en la parte superior de la pila
-void	ft_sort_min(t_stack **stack)
+/*void	ft_sort_min(t_stack **stack)
 {
 	int	max;
 
@@ -74,11 +74,11 @@ void	ft_sort_min(t_stack **stack)
 		if ((*stack)->index > (*stack)->next->index)
 			sa(stack, 1);
 	}
-}
+}*/
 
 //Se encarga de reordenar el stack A de manera que el elemento con el indice mas bajo
 //este en la parte superior del stack
-void    shifte_change(t_stack **a)
+/*void    shifte_change(t_stack **a)
 {
     int low_pos;
     int len_stack;
@@ -103,4 +103,4 @@ void    shifte_change(t_stack **a)
             low_pos --;
         }
     }
-}
+}*/

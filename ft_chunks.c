@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 13:51:53 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:19:58 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:39:56 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_init_chunk_data(t_chunk_data *data, int len)
 {
     if (len <= 100)
-        data->chunk_size = len / 6; // Para 100 números
+        data->chunk_size = len / 4; // Para 100 números
     else
         data->chunk_size = len / 10; // ✅ Para 500 números (13 chunks de ~38)
     data->pushed_total = 0;
@@ -38,7 +38,7 @@ void	ft_process_chunk_element(t_stack **a, t_stack **b, t_chunk_data *data)
     }
 }
 /* Procesa elementos por chunks */
-void	ft_process_chunk(t_stack **a, t_stack **b, int *i, int chunk)
+/*void	ft_process_chunk(t_stack **a, t_stack **b, int *i, int chunk)
 {
     if ((*a)->index <= *i)
     {
@@ -48,7 +48,7 @@ void	ft_process_chunk(t_stack **a, t_stack **b, int *i, int chunk)
     }
     else
         ra(a, 1);
-}
+}*/
 
 /* Devuelve todos los elementos de B a A usando el algoritmo de coste mínimo */
 void	ft_return_from_b(t_stack **a, t_stack **b)

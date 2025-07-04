@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 14:07:12 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 13:57:17 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:40:36 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_find_min(t_stack **stack)
 }
 
 // Devuelve el indice maximo de los elementos en un stack
-int	ft_find_max(t_stack **stack)
+/*int	ft_find_max(t_stack **stack)
 {
 	t_stack	*temp;
 	int		max;
@@ -43,7 +43,7 @@ int	ft_find_max(t_stack **stack)
 		temp = temp->next;
 	}
 	return (max);
-}
+}*/
 
 //Busca y devuelve la posicion del elemento con el indice min
 //en el stack
@@ -66,7 +66,7 @@ int	ft_find_pos_min(t_stack **stack, int min)
 
 //Busca y devuelve la posicion del elemento con el indice max
 //en el stack
-int	ft_find_pos_max(t_stack **stack, int max_index)
+/*int	ft_find_pos_max(t_stack **stack, int max_index)
 {
     t_stack	*temp;
     int		pos;
@@ -81,7 +81,7 @@ int	ft_find_pos_max(t_stack **stack, int max_index)
         pos++;
     }
     return (-1);
-}
+}*/
 
 //Devuelve el indice del ultimo elemento del stack
 int	ft_find_last(t_stack **stack)
