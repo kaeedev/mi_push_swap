@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:41:24 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/03 14:32:57 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 14:20:25 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,31 +56,41 @@ int	ft_pos_min(t_stack **a, int start_pos)
 //orenamiento dependiendo de la posicion de los elementos en el stack A
 void	ft_sort_end(t_stack **a, t_stack **b)
 {
-	ft_sort_min(a); 
+	ft_sort_min(a);
 	while (*b)
 	{
 		ft_find_pos_target(a, b);
 		ft_get_cost(a, b);
 		ft_cheap_sort(a, b);
-		if (!be_sorted(*a))
+		if (!be_sorted(a))
 			shifte_change(a);
 	}
 }
-//Se encarga de mover los elementos mas grandes del stack A a la B
-//Se utiliza cando hay que ordenar mas de 5 elementos
+
+/* Procesa un elemento del chunk */
+void	ft_process_element(t_stack **a, t_stack **b, int *pushed_total)
+{
+    pb(a, b, 1);
+    (*pushed_total)++;
+}
+
+/* Función principal optimizada */
 void	ft_sort_max(t_stack **a, t_stack **b)
 {
-	int	pos_max;
+    t_chunk_data	data;
+    int				len;
 
-	pos_max = (ft_stack_len(*a) / 2);
-	while (ft_stack_len(*a) >= pos_max + 1)
-	{
-		if ((*a)->index > pos_max + 1)
-			ra(a, 1);
-		else
-			pb(a, b, 1);
-	}
-	while (ft_stack_len(*a) >= 1)
-		pb(a, b, 1);
-	ft_sort_end(a, b);
+    len = ft_stack_len(*a);
+    ft_init_chunk_data(&data, len);
+    while (ft_stack_len(*a) > 3)
+    {
+        if ((*a)->index < data.current_max)
+            ft_process_chunk_element(a, b, &data);
+        else
+            ra(a, 1);
+    }
+    ft_sort_three(a);
+    ft_return_from_b(a, b);
+    ft_final_sort(a);
 }
+

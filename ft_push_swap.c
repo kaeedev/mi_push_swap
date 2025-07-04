@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 14:41:01 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/03 17:32:20 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 12:34:12 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	be_sorted(t_stack **a)
 {
 	t_stack	*temp;
 
-	if (a == NULL)
+	if (a == NULL || *a == NULL)
 		return (1);
 	temp = *a;
-	while (temp->next != NULL)
+	while (temp && temp->next != NULL)
 	{
 		if (temp->value < temp->next->value)
 			temp = temp->next;
@@ -38,7 +38,7 @@ void	ft_be_duplicated(t_stack *a)
 
 	if (a == NULL)
 		ft_error(0);
-	while (a->next != NULL)
+	while (a && a->next != NULL)
 	{
 		temp = a->next;
 		while (temp)
@@ -58,6 +58,8 @@ int	be_nbr(char *str)
 	long	nbr;
 	int		neg;
 
+	if (!str || !*str)
+		ft_error(0);
 	neg = 1;
 	nbr = 0;
 	if (*str == '-')
@@ -66,7 +68,7 @@ int	be_nbr(char *str)
 		str ++;
 	if (!*str)
 		ft_error(0);
-	while(*str >= '0' && *str <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
 		nbr = nbr * 10 + *str - '0';
 		str ++;
@@ -102,7 +104,7 @@ int	main(int argc, char **argv)
 		i --;
 	}
 	ft_be_duplicated(a);
-	if (be_sorted(a))
+	if (be_sorted(&a))
 		return (0);
 	ft_sort(&a, &b);
 	ft_free_all(&a, &b);

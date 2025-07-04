@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 15:25:13 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/02 13:49:26 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 12:43:04 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ t_stack	*ft_copy_stack(t_stack *src)
 	while (src)
 	{
 		temp = malloc(sizeof(t_stack));
+		if (!temp)
+		{
+			ft_free(&copy);
+			return (NULL);
+		}
 		temp->value = src->value;
 		temp->next = NULL;
 		if (last)
@@ -94,6 +99,11 @@ void	ft_get_index(t_stack **a)
 	t_stack	*original;
 
 	sorted_copy = ft_copy_stack(*a);
+	if (!sorted_copy)
+	{
+		ft_error(0);
+		return ;
+	}
 	ft_sort_list(&sorted_copy);
 	original = *a;
 	while (original)
@@ -101,5 +111,5 @@ void	ft_get_index(t_stack **a)
 		original->index = ft_find_index(sorted_copy, original->value);
 		original = original->next;
 	}
-	ft_free(sorted_copy);
+	ft_free(&sorted_copy);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 12:32:48 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/03 11:09:10 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 13:32:30 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,25 +92,30 @@ void	ft_sort_four(t_stack **a, t_stack **b)
 //que faltan
 void	ft_sort_five(t_stack **a, t_stack **b)
 {
-	while (ft_stack_len(*a) > 3)
-	{
-		if (ft_find_pos_min(a, ft_find_min(a)) < 3)
-			ra(a, 1);
-		else
-			rra(a, 1);
-		pb(a, b, 1);
-	}
-	if (be_sorted(a) == 1)
-	{
-		pa(a, b, 1);
-		pa(a, b, 1);
-	}
-	else
-	{
-		ft_sort_three(a);
-		pa(a, b, 1);
-		pa(a, b, 1);
-	}
+    int	min1;
+	int	min2;
+    
+    min1 = ft_find_min(a);
+    while ((*a)->index != min1)
+    {
+        if (ft_find_pos_min(a, min1) < 3)
+            ra(a, 1);
+        else
+            rra(a, 1);
+    }
+    pb(a, b, 1);
+    min2 = ft_find_min(a);
+    while ((*a)->index != min2)
+    {
+        if (ft_find_pos_min(a, min2) < 2)
+            ra(a, 1);
+        else
+            rra(a, 1);
+    }
+    pb(a, b, 1);
+    ft_sort_three(a);
+    pa(a, b, 1);
+    pa(a, b, 1);
 }
 
 //Se encarga de ordenar el stack A utilizando diferentes
@@ -126,6 +131,8 @@ void	ft_sort(t_stack **a, t_stack **b)
 	ft_get_index(a);
 	ft_add_pos(a, b);
 	ft_find_pos_target(a, b);
+	if (be_sorted(a))
+		return ;
 	if (stack_len < 2)
 		ft_error(0);
 	else if (stack_len == 2)
@@ -137,5 +144,5 @@ void	ft_sort(t_stack **a, t_stack **b)
 	else if (stack_len == 5)
 		ft_sort_five(a, b);
 	else if (stack_len > 5)
-		ft_sort_max(); //por hacer
+		ft_sort_max(a, b);
 }

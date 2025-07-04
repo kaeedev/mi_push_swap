@@ -6,7 +6,7 @@
 /*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 13:03:57 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/06/30 11:07:19 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/04 13:03:28 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ void	rra(t_stack **a, int print)
 	last = *a;
 	while (last->next)
 		last = last->next;
-	second_last = last->prev;
+	second_last = *a;
+	while (second_last->next != last)
+		second_last = second_last->next;
 	second_last->next = NULL;
 	last->prev = NULL;
 	last->next = *a;
-	(*a)->prev = last;
+	if (*a)
+		(*a)->prev = last;
 	*a = last;
 	if (print == 1)
 		ft_printf("rra\n");
@@ -40,16 +43,19 @@ void	rrb(t_stack **b, int print)
 	t_stack	*last;
 	t_stack	*second_last;
 
-	if ((!*b) || !(*b)->next)
+	if (!*b || !(*b)->next)
 		return ;
 	last = *b;
 	while (last->next)
 		last = last->next;
-	second_last = last->prev;
+	second_last = *b;
+	while (second_last->next != last)
+		second_last = second_last->next;
 	second_last->next = NULL;
 	last->prev = NULL;
 	last->next = *b;
-	(*b)->prev = last;
+	if (*b)
+		(*b)->prev = last;
 	*b = last;
 	if (print == 1)
 		ft_printf("rrb\n");

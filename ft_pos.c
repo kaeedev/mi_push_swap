@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pos.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 13:03:52 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/03 10:57:30 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 14:17:41 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,24 @@ int	ft_target(t_stack **a, int index, int target, int pos)
 	return (pos);  // Devolver la posición del mínimo
 }
 
+/* Rota A hasta que el elemento con índice 0 esté en la cima */
+void	ft_final_sort(t_stack **a)
+{
+    int	min_pos;
+
+    min_pos = ft_find_pos_min(a, 0); 
+    if (min_pos <= ft_stack_len(*a) / 2)
+    {
+        while (min_pos-- > 0)
+            ra(a, 1);
+    }
+    else
+    {
+        while (min_pos++ < ft_stack_len(*a))
+            rra(a, 1);
+    }
+}
+
 //Se encarga de encontrar la posicion objetivo para cada elemento en 
 //el stack B en el stack A
 void	ft_find_pos_target(t_stack **a, t_stack **b)
@@ -127,3 +145,4 @@ void	ft_find_pos_target(t_stack **a, t_stack **b)
 		temp_b = temp_b->next;
 	}
 }
+

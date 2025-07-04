@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_c.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:39:03 by lalbe             #+#    #+#             */
-/*   Updated: 2025/07/03 14:32:30 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 11:44:06 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,26 @@ int ft_low_index(t_stack **stack)
 
 //Se encarga de ordenar la pila de manera que el elemento con el indice mas bajo
 //este en la parte superior de la pila
-void    ft_sort_min(t_stack **stack)
+void	ft_sort_min(t_stack **stack)
 {
-    int max;
-    
-    if (be_sorted(*stack))
-        return ;
-    max = ft_high_index(*stack); //indice del elemento mas grande
-    if ((*stack)->index == max) //si el elemento mas grande esta en primera posicion...
-        ra(stack, 1);
-        if ((*stack)->index > (*stack)->next->index) //si queda despues del ra q el primer elemento es mayor al segundo, se swapea
-            sa(stack, 1);
-    else if ((*stack)->next->index == max) //si esta en segundda
-        rra(stack, 1);
-        if ((*stack)->index > (*stack)->next->index)
-            sa(stack, 1);
-    else //si esta en tercera
-    {
-        if ((*stack)->index > (*stack)->next->index)
-            sa(stack, 1);
-    }
+	int	max;
+
+	if (be_sorted(stack))
+		return ;
+	max = ft_high_index(*stack); //indice del elemento mas grande
+	if ((*stack)->index == max) //si el elemento mas grande esta en primera posicion...
+		ra(stack, 1);
+	if ((*stack)->index > (*stack)->next->index) //si queda despues del ra q el primer elemento es mayor al segundo, se swapea
+		sa(stack, 1);
+	else if ((*stack)->next->index == max) //si esta en segundda
+		rra(stack, 1);
+	if ((*stack)->index > (*stack)->next->index)
+		sa(stack, 1);
+	else //si esta en tercera
+	{
+		if ((*stack)->index > (*stack)->next->index)
+			sa(stack, 1);
+	}
 }
 
 //Se encarga de reordenar el stack A de manera que el elemento con el indice mas bajo
@@ -84,7 +84,7 @@ void    shifte_change(t_stack **a)
     int len_stack;
     int moves;
 
-    low_pos = ft_low_index(*a);
+    low_pos = ft_low_index(a);
     len_stack = ft_stack_len(*a);
     if (low_pos > (len_stack / 2))
     {

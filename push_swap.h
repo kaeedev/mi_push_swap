@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:19:04 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/03 17:37:51 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 14:19:01 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ typedef struct s_stack
 	bool			above;
 	bool			best;
 }	t_stack;
+
+typedef struct s_chunk_data
+{
+	int	chunk_size;
+	int	pushed_total;
+	int	current_max;
+}	t_chunk_data;
 
 void	pa(t_stack **a, t_stack **b, int print);
 void	pb(t_stack **a, t_stack **b, int print);
@@ -93,7 +100,9 @@ void	ft_sort_five(t_stack **a, t_stack **b);
 void	ft_sort(t_stack **a, t_stack **b);
 int		ft_find_max(t_stack **stack);
 int		ft_find_pos_max(t_stack **stack, int max);
-
-void    ft_print_stack(t_stack *stack, char *name);
-t_stack *ft_create_test_stack(int values[], int size);
+void	ft_process_chunk(t_stack **a, t_stack **b, int *i, int chunk);
+void	ft_return_from_b(t_stack **a, t_stack **b);
+void	ft_init_chunk_data(t_chunk_data *data, int len);
+void	ft_process_chunk_element(t_stack **a, t_stack **b, t_chunk_data *data);
+void	ft_final_sort(t_stack **a);
 #endif

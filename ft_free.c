@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 11:16:24 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/03 10:29:38 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/04 12:38:11 by luviso-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_free(t_stack **stack)
 		*stack = temp;
 	}
 	*stack = NULL;
-	free(temp);
 }
 
 //Libera la memoria de ambos stacks a la vez
