@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:41:24 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:48:58 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/05 11:01:28 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,17 @@ void	ft_moves(t_stack **a, t_stack **b, int a_cost, int b_cost)
 /* Función principal optimizada */
 void	ft_sort_max(t_stack **a, t_stack **b)
 {
-    t_chunk_data	data;
-    int				len;
+	t_chunk_data	data;
+	int				len;
+	int				i;
 
-    len = ft_stack_len(*a);
-    ft_init_chunk_data(&data, len);
-    while (ft_stack_len(*a) > 3)
-    {
-        if ((*a)->index < data.current_max)
-            ft_process_chunk_element(a, b, &data);
-        else
-            ra(a, 1);
-    }
-    ft_sort_three(a);
-    ft_return_from_b(a, b);
-    ft_final_sort(a);
+	len = ft_stack_len(*a);
+	ft_init_chunk_data(&data, len);
+	i = 0;
+	while (ft_stack_len(*a) > 3)
+		ft_process_chunk_logic(a, b, &data, &i);
+	ft_sort_three(a);
+	ft_return_from_b(a, b);
+	ft_final_sort(a);
 }
 

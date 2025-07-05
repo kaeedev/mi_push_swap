@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:19:04 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:43:42 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/05 11:00:57 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,6 @@ void	ft_return_from_b(t_stack **a, t_stack **b);
 void	ft_init_chunk_data(t_chunk_data *data, int len);
 void	ft_process_chunk_element(t_stack **a, t_stack **b, t_chunk_data *data);
 void	ft_final_sort(t_stack **a);
+void	ft_process_chunk_logic(t_stack **a, t_stack **b, t_chunk_data *data, 
+    int *i);
 #endif

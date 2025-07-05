@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chunks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 13:51:53 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:39:56 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/05 11:19:38 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,25 @@ void	ft_process_chunk_element(t_stack **a, t_stack **b, t_chunk_data *data)
         data->pushed_total = 0;
     }
 }
-/* Procesa elementos por chunks */
-/*void	ft_process_chunk(t_stack **a, t_stack **b, int *i, int chunk)
+
+void	ft_process_chunk_logic(t_stack **a, t_stack **b, t_chunk_data *data,
+	int *i)
 {
-    if ((*a)->index <= *i)
+    if ((*a)->index <= data->current_max)
     {
-        pb(a, b, 1);
-        if ((*b)->index < *i - chunk / 2)
+		pb(a, b, 1);
+        if ((*b)->index < (data->current_max - data->chunk_size / 2))
             rb(b, 1);
+        (*i)++;
     }
     else
         ra(a, 1);
-}*/
+    if (*i >= data->chunk_size)
+    {
+        data->current_max += data->chunk_size;
+        *i = 0;
+    }
+}
 
 /* Devuelve todos los elementos de B a A usando el algoritmo de coste mínimo */
 void	ft_return_from_b(t_stack **a, t_stack **b)

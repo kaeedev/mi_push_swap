@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+         #
+#    By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/27 11:30:00 by luviso-p          #+#    #+#              #
-#    Updated: 2025/07/04 13:52:45 by luviso-p         ###   ########.fr        #
+#    Updated: 2025/07/05 10:37:04 by lalbe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,10 +66,14 @@ $(NAME): $(OBJECTS)
 clean:
 	@echo "$(RED)Cleaning object files...$(NC)"
 	@rm -rf $(OBJDIR)
+	@echo "$(RED)Cleaning ft_printf...$(NC)"
+	@make -C ft_printf clean
 
 fclean: clean
 	@echo "$(RED)Cleaning $(NAME)...$(NC)"
 	@rm -f $(NAME)
+	@echo "$(RED)Cleaning ft_printf library...$(NC)"
+	@make -C ft_printf fclean
 
 re: fclean all
 
