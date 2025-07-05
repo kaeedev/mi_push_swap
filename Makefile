@@ -6,7 +6,7 @@
 #    By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/27 11:30:00 by luviso-p          #+#    #+#              #
-#    Updated: 2025/07/05 10:37:04 by lalbe            ###   ########.fr        #
+#    Updated: 2025/07/05 12:13:30 by lalbe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ OBJDIR = obj
 SOURCES = ft_push.c ft_rotate_up.c ft_rotate_down.c ft_swap.c ft_index.c ft_free.c \
           ft_printf/ft_printf.c ft_printf/utils/ft_nbr_hex.c ft_printf/utils/ft_nbr_pointer.c \
           ft_printf/utils/ft_putchar.c ft_printf/utils/ft_putnbr.c ft_printf/utils/ft_putnbru.c \
-          ft_printf/utils/ft_putstr.c ft_printf/utils/ft_strlen.c ft_find_index.c ft_sort.c \
-          ft_tools.c ft_find.c ft_sort_big.c ft_sort_c.c ft_moves.c ft_atoi.c ft_pos.c \
+          ft_printf/utils/ft_putstr.c ft_printf/utils/ft_strlen.c ft_cost.c ft_sort.c \
+          ft_tools.c ft_find.c ft_sort_big.c ft_atoi.c ft_pos.c \
 		  ft_push_swap.c ft_chunks.c
 OBJECTS = $(SOURCES:%.c=$(OBJDIR)/%.o)
 
@@ -76,18 +76,6 @@ fclean: clean
 	@make -C ft_printf fclean
 
 re: fclean all
-
-test: $(NAME)
-	@echo "$(BLUE)Running basic tests...$(NC)"
-	@./$(NAME) 4 67 3 87 23
-	@echo ""
-	@./$(NAME) 2 1 3 6 5 8
-	@echo ""
-	@./$(NAME) 1 5 2 4 3
-
-debug: $(SOURCES)
-	@echo "$(BLUE)Compiling with debug info...$(NC)"
-	@$(CC) $(CFLAGS) -g3 -fsanitize=address $(SOURCES) -o $(NAME)_debug
 
 valgrind: $(NAME)
 	@echo "$(BLUE)Running valgrind tests...$(NC)"

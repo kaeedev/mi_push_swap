@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 12:32:48 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 13:32:30 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/05 12:12:58 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,30 +92,30 @@ void	ft_sort_four(t_stack **a, t_stack **b)
 //que faltan
 void	ft_sort_five(t_stack **a, t_stack **b)
 {
-    int	min1;
+	int	min1;
 	int	min2;
-    
-    min1 = ft_find_min(a);
-    while ((*a)->index != min1)
-    {
-        if (ft_find_pos_min(a, min1) < 3)
-            ra(a, 1);
-        else
-            rra(a, 1);
-    }
-    pb(a, b, 1);
-    min2 = ft_find_min(a);
-    while ((*a)->index != min2)
-    {
-        if (ft_find_pos_min(a, min2) < 2)
-            ra(a, 1);
-        else
-            rra(a, 1);
-    }
-    pb(a, b, 1);
-    ft_sort_three(a);
-    pa(a, b, 1);
-    pa(a, b, 1);
+
+	min1 = ft_find_min(a);
+	while ((*a)->index != min1)
+	{
+		if (ft_find_pos_min(a, min1) < 3)
+			ra(a, 1);
+		else
+			rra(a, 1);
+	}
+	pb(a, b, 1);
+	min2 = ft_find_min(a);
+	while ((*a)->index != min2)
+	{
+		if (ft_find_pos_min(a, min2) < 2)
+			ra(a, 1);
+		else
+			rra(a, 1);
+	}
+	pb(a, b, 1);
+	ft_sort_three(a);
+	pa(a, b, 1);
+	pa(a, b, 1);
 }
 
 //Se encarga de ordenar el stack A utilizando diferentes

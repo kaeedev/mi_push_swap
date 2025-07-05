@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 14:41:01 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 12:34:12 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/05 12:27:42 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,25 +83,21 @@ int	be_nbr(char *str)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
-	t_stack	*temp;
+	t_stack	*a;
+	t_stack	*b;
 	int		i;
 	int		value;
 
 	a = NULL;
 	b = NULL;
-	temp = NULL;
 	if (argc < 2)
 		return (0);
 	i = argc - 1;
 	while (i > 0)
 	{
 		value = be_nbr(argv[i]);
-		temp = ft_new_stack(value);
-		temp->next = a;
-		a = temp;
-		i --;
+		ft_stack_add_front(&a, ft_new_stack(value));
+		i--;
 	}
 	ft_be_duplicated(a);
 	if (be_sorted(&a))

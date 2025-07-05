@@ -6,7 +6,7 @@
 /*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 11:10:01 by lalbe             #+#    #+#             */
-/*   Updated: 2025/07/03 16:43:00 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/05 12:28:38 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_error(int i)
 }
 
 //Es una funcion constructora que crea un nuevo nodo para el stack
-t_stack *ft_new_stack(int value)
+t_stack	*ft_new_stack(int value)
 {
 	t_stack	*b;
 
@@ -41,26 +41,11 @@ t_stack *ft_new_stack(int value)
 	return (b);
 }
 
-//Se encarga de devolver el numero de numeros negativos en un stack
-int	ft_count_neg(t_stack **stack)
+//Funcion para añadir un nuevo elemento al principio del stack
+void	ft_stack_add_front(t_stack **stack, t_stack *new_node)
 {
-	int		count;
-	t_stack *temp;
-
-	temp = *stack;
-	count = 0;
-	while (temp)
-	{
-		if (temp->value < 0)
-			count ++;
-		temp = temp->next;
-	}
-	return (count);
-}
-
-//Se encarga de mover todos los elementos del stack B al stack A
-void	ft_b_to_a(t_stack **a, t_stack **b)
-{
-	while(*b)
-		pa(a, b, 1);
+	if (!stack || !new_node)
+		return ;
+	new_node->next = *stack;
+	*stack = new_node;
 }

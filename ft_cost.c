@@ -3,59 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find_index.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 11:55:38 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:44:23 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/05 11:44:43 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//Busca el primer elemento desde arriba hasta abajo en el stack cuyo indice
-//este dentro de un rango especifico. min = indice minimo del rango
-//max = indice maximo del rango.
-//Devuelve el indice mas cercano al rango minimo q le pongamos. 
-//Si ponemos de rango
-//2 y 4, nos devuelve el indice 2, q es el indice del elemento 2 en el stack
-/*int	ft_find_index_up(t_stack **a, int min, int max)
-{
-	t_stack	*temp;
-	int		index;
-
-	index = 0;
-	temp = *a;
-	while (temp)
-	{
-		if (temp->index >= min && temp->index <= max)
-			return (index);
-		index++;
-		temp = temp->next;
-	}
-	return (-1);
-}*/
-
-/* Devuelve el indice mas cercado al rango maximo q le pongamos. Si ponemos de 
- * rango 2 y 4, nos devuelve el indice 4, q es el indice del elemento 4 en 
- * el stack */
-/*int	ft_find_index_down(t_stack **a, int min, int max)
-{
-	t_stack	*temp;
-	int		index;
-	int		found_index;
-
-	index = 0;
-	found_index = -1;
-	temp = *a;
-	while (temp)
-	{
-		if (temp->index >= min && temp->index <= max)
-			found_index = index;
-		index++;
-		temp = temp->next;
-	}
-	return (found_index);
-}*/
 
 /* Encuentra el elemento del stack B que es mas barato de mover al stack A
  * y ejecuta ese movimiento. Se llama repetidamente hasta vaciar B */

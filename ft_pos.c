@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pos.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luviso-p <luviso-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 13:03:52 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/04 14:17:41 by luviso-p         ###   ########.fr       */
+/*   Updated: 2025/07/05 12:11:34 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	ft_add_pos(t_stack **a, t_stack **b)
 
 //Encuentra la posición correcta donde insertar un elemento del stack B 
 //en el stack A para mantener el orden.
-//La variable target funciona como "mejor candidato actual". Es como un mrcador que dice
+//La variable target funciona como "mejor candidato actual". Es como un 
+//mrcador que dice
 //"este es el mejor lugar hasta ahora para insertar el elemento"
 /*
 Stack A: [10, 30, 50, 70]  →  índices: [0, 1, 3, 4]
@@ -84,51 +85,46 @@ int	ft_target(t_stack **a, int index, int target, int pos)
 	t_stack	*temp_a;
 
 	temp_a = *a;
-	// FASE 1: Buscar el "sucesor más cercano"
 	while (temp_a)
 	{
-		// ¿Es este elemento mayor que el que queremos insertar Y menor que el mejor candidato actual?
 		if (temp_a->index > index && temp_a->index < target)
 		{
-			target = temp_a->index;  // Actualizar el mejor candidato
-			pos = temp_a->pos;       // Guardar su posición
+			target = temp_a->index;// Actualizar el mejor candidato
+			pos = temp_a->pos;// Guardar su posición
 		}
 		temp_a = temp_a->next;
 	}
-	// Si encontramos un sucesor válido, devolver su posición
 	if (target != INT_MAX)
 		return (pos);
-	// FASE 2: Si no hay sucesor, buscar el elemento mínimo
-	temp_a = *a;  // Volver a empezar desde el inicio del stack A
+	temp_a = *a;// Volver a empezar desde el inicio del stack A
 	while (temp_a)
 	{
-		// ¿Es este elemento menor que el mejor candidato actual?
 		if (temp_a->index < target)
 		{
-			target = temp_a->index;  // Actualizar al mínimo encontrado
-			pos = temp_a->pos;       // Guardar su posición
+			target = temp_a->index;// Actualizar al mínimo encontrado
+			pos = temp_a->pos;// Guardar su posición
 		}
 		temp_a = temp_a->next;
 	}
-	return (pos);  // Devolver la posición del mínimo
+	return (pos);// Devolver la posición del mínimo
 }
 
 /* Rota A hasta que el elemento con índice 0 esté en la cima */
 void	ft_final_sort(t_stack **a)
 {
-    int	min_pos;
+	int	min_pos;
 
-    min_pos = ft_find_pos_min(a, 0); 
-    if (min_pos <= ft_stack_len(*a) / 2)
-    {
-        while (min_pos-- > 0)
-            ra(a, 1);
-    }
-    else
-    {
-        while (min_pos++ < ft_stack_len(*a))
-            rra(a, 1);
-    }
+	min_pos = ft_find_pos_min(a, 0);
+	if (min_pos <= ft_stack_len(*a) / 2)
+	{
+		while (min_pos-- > 0)
+			ra(a, 1);
+	}
+	else
+	{
+		while (min_pos++ < ft_stack_len(*a))
+			rra(a, 1);
+	}
 }
 
 //Se encarga de encontrar la posicion objetivo para cada elemento en 
@@ -145,4 +141,3 @@ void	ft_find_pos_target(t_stack **a, t_stack **b)
 		temp_b = temp_b->next;
 	}
 }
-
