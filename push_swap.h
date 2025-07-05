@@ -6,7 +6,7 @@
 /*   By: lalbe <lalbe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:19:04 by luviso-p          #+#    #+#             */
-/*   Updated: 2025/07/05 12:28:55 by lalbe            ###   ########.fr       */
+/*   Updated: 2025/07/05 12:49:49 by lalbe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ typedef struct s_stack
 	int				b_cost;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-	struct s_stack	*target_node;
-	bool			above;
-	bool			best;
 }	t_stack;
 
 typedef struct s_chunk_data
